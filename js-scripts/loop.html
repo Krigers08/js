@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="number" id="num1" name="numba" />
+    <input type="number" id="num2" name="numba" />
+    <button id="checkButton">Pārbaudīt</button>
+    <p id="output"></p>
+
+    <script>
+      const num1Input = document.getElementById("num1");
+      const num2Input = document.getElementById("num2");
+      const checkButton = document.getElementById("checkButton");
+      const outputParagraph = document.getElementById("output");
+
+
+      checkButton.addEventListener("click", function () {
+        const num1 = parseInt(num1Input.value);
+        const num2 = parseInt(num2Input.value);
+
+
+        if (isNaN(num1) || isNaN(num2) || num1 <= 0 || num2 <= 0) {
+          alert("Lūdzu ievadiet naturālus skaitļus.");
+        } else if (num1 >= num2) {
+          alert("Pirmajam skaitlim jābūt mazākam par otro.");
+        } else {
+
+          const numbersInRange = [];
+          for (let i = num1 + 1; i < num2; i++) {
+            numbersInRange.push(i);
+          }
+
+          console.log(
+            "Skaitļi starp " +
+              num1 +
+              " un " +
+              num2 +
+              ": " +
+              numbersInRange.join(", ")
+          );
+          outputParagraph.textContent =
+            "Skaitļi starp " +
+            num1 +
+            " un " +
+            num2 +
+            ": " +
+            numbersInRange.join(", ");
+        }
+      });
+    </script>
+  </body>
+</html>
